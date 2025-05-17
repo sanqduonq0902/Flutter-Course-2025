@@ -4,6 +4,12 @@ void main() {
   runApp(const MyApp());
 }
 
+String name = 'String';
+int number = 1;
+double double1 = 1.0;
+List myList = ['1', '2'];
+Map myMap = {};
+
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
