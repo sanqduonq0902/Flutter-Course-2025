@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_course/data/notify.dart';
+import 'package:flutter_course/views/pages/home.dart';
+import 'package:flutter_course/views/pages/welcome.dart';
 import 'package:flutter_course/views/widget-tree.dart';
 
 void main() {
@@ -29,7 +31,7 @@ class _MyAppState extends State<MyApp> {
           seedColor: Colors.teal, 
           brightness: value ? Brightness.dark : Brightness.light
         )),
-        home: WidgetTree(),
+        home: WelcomeWidget(),
       );
     });
   }

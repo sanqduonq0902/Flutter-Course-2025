@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 
 class SettingsWidget extends StatefulWidget {
-  const SettingsWidget({super.key});
+  const SettingsWidget({super.key, required this.title});
+  final String title;
 
   @override
   State<SettingsWidget> createState() => _SettingsWidgetState();
@@ -17,13 +18,8 @@ class _SettingsWidgetState extends State<SettingsWidget> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Settings'),
-        leading: BackButton(
-          onPressed: () {
-            Navigator.pop(context);
-          },
-        ),
-        automaticallyImplyLeading: false,
+        title: Text(widget.title),
+        
       ),
       body: SingleChildScrollView(
       padding: const EdgeInsets.all(20.0),
@@ -60,13 +56,36 @@ class _SettingsWidgetState extends State<SettingsWidget> {
           ),
           CheckboxListTile(
             tristate: true,
-            title: Text('Click me'),
+            title: Text('Open SnackBar'),
             value: isCheck,
             onChanged: (bool? value) {
               setState(() {
                 isCheck = value!;
               });
+              if (value == true) {
+                ScaffoldMessenger.of(context).showSnackBar(
+                  SnackBar(content: Text('Selected snackbar!'),
+                  duration: Duration(seconds: 5),
+                  behavior: SnackBarBehavior.floating,
+                ));
+              }
             },
+          ),
+          ElevatedButton(
+            onPressed: () {
+              showDialog(context: context, builder: (context) {
+                return AlertDialog(
+                  title: Text('Title Alert'),
+                  content: Text('Content Alert'),
+                  actions: [
+                    FilledButton(onPressed: () {
+                      Navigator.pop(context);
+                    }, child: Text('Close'))
+                  ],
+                );
+              });
+            }, 
+            child: Text('Open Dialog')
           ),
           Switch(
             value: isSwitched,
