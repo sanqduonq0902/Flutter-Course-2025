@@ -71,6 +71,15 @@ class _SettingsWidgetState extends State<SettingsWidget> {
               }
             },
           ),
+          Divider(
+            color: Colors.teal,
+            thickness: 5,
+            endIndent: 200,
+          ),
+          Container(
+            height: 50.0,
+            child: VerticalDivider(),
+          ),
           ElevatedButton(
             onPressed: () {
               showDialog(context: context, builder: (context) {

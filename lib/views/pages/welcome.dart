@@ -3,10 +3,16 @@ import 'package:flutter_course/data/notify.dart';
 import 'package:flutter_course/views/pages/settings.dart';
 import 'package:flutter_course/views/widget-tree.dart';
 import 'package:flutter_course/widgets/hero.dart';
+import 'package:lottie/lottie.dart';
 
-class WelcomeWidget extends StatelessWidget {
+class WelcomeWidget extends StatefulWidget {
   const WelcomeWidget({super.key});
 
+  @override
+  State<WelcomeWidget> createState() => _WelcomeWidgetState();
+}
+
+class _WelcomeWidgetState extends State<WelcomeWidget> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -15,15 +21,34 @@ class WelcomeWidget extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            HeroWidget(),
+            Lottie.asset('assets/lotties/home.json'),
+            FittedBox(
+              child: Text(
+                'Flutter Map',
+                style: TextStyle(
+                  fontSize: 200,
+                  fontWeight: FontWeight.bold,
+                  letterSpacing: 50,
+                ),
+              ),
+            ),
+            SizedBox(height: 20),
             FilledButton(
               onPressed: () {
-                selectedNotify.value = 0;
-                Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) {
-                  return WidgetTree();
-                }));
-              }, 
-              child: Text('Login')
+                Navigator.pushReplacement(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) {
+                      return WidgetTree();
+                    },
+                  ),
+                );
+              },
+              style: FilledButton.styleFrom(
+                minimumSize: Size(double.infinity, 40),
+              ),
+              child: Text('Get started'),
+              
             ),
           ],
         ),
