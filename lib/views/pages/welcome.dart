@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_course/data/notify.dart';
+import 'package:flutter_course/views/pages/login.dart';
 import 'package:flutter_course/views/pages/settings.dart';
 import 'package:flutter_course/views/widget-tree.dart';
 import 'package:flutter_course/widgets/hero.dart';
@@ -39,7 +40,7 @@ class _WelcomeWidgetState extends State<WelcomeWidget> {
                   context,
                   MaterialPageRoute(
                     builder: (context) {
-                      return WidgetTree();
+                      return LoginWidget();
                     },
                   ),
                 );
