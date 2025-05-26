@@ -10,9 +10,12 @@ class HeroWidget extends StatelessWidget {
       children: [
         Hero(
           tag: 'Hero',
-          child: ClipRRect(
-            borderRadius: BorderRadius.circular(20),
-            child: Image.asset('assets/image/background.png'),
+          child: AspectRatio(
+            aspectRatio: 1920 / 1080,
+            child: ClipRRect(
+              borderRadius: BorderRadius.circular(20),
+              child: Image.asset('assets/image/background.png', fit: BoxFit.cover,),
+            ),
           ),
         ),
         FittedBox(
