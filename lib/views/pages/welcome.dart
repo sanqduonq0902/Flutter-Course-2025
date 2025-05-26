@@ -40,7 +40,7 @@ class _WelcomeWidgetState extends State<WelcomeWidget> {
                   context,
                   MaterialPageRoute(
                     builder: (context) {
-                      return LoginWidget();
+                      return LoginWidget(title: 'Register',);
                     },
                   ),
                 );
